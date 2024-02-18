@@ -2,16 +2,15 @@
 
 ![Logo](images/logo.png)
 
-Teams:
-
 Resources
 ---------
-- [Discord](https://discord.gg/htBfm2VA)
+- [Discord](https://discord.gg/XmNCFA8TAt)
 - [Install the software you will need for this module](install.md)
 * [Games Fleadh](http://www.gamesfleadh.ie/)
 * [The git manual - read the first three chapters](http://git-scm.com/documentation)
 * [A video tutorial all about git/github](https://www.youtube.com/watch?v=p_PGUltnB6w)
 * [The Processing language reference](http://processing.org/reference/)
+- [git reference](https://github.com/skooter500/csresources/blob/master/git_ref.md)
 
 ## Contact the lecturer
 * Email: bryan.duggan@tudublin.ie
@@ -19,6 +18,96 @@ Resources
 
 ## Assignments
 - [Assignments](assignments.md)
+
+# Week 4 - Arrays
+- [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EVvqKnadwxRHiFqi5a1BIGABb1_vjPamd3rVu-U5ggrhfg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=s8PPg6)
+
+## Lab
+## Learning Outcomes
+- Iterate over an array using for loop
+- How to visualise elements
+- Map values in a dataset onto screen coordinates 
+- Improved computational thinking skills
+- Learn Java syntax
+
+Accept [this assignment on Githuib classroom](https://classroom.github.com/a/4RR3vwmf). Clone the repo. Attempt the exercises and make 5 commits. Feel free to play with hue and saturation in addition to hue. Share pictures on Discord! They are really great and so impressive.
+
+Check out this video of the assignment I wrote in GWBasic for the statistics module in first year WMT in Kevin St in 1990 (click the image for video):
+
+[![YouTube](http://img.youtube.com/vi/p3Vui6q_wPw/0.jpg)](https://www.youtube.com/watch?v=p3Vui6q_wPw)
+
+And here is the [source code](https://github.com/skooter500/StatsAssignment). It's the early work of the word's greatest computer scientist. 
+
+Inspired by the video, write code to generate graphs of the rainfall data. Start with the file Arrays.java. You will find these *much easier* if you use the [map function](https://processing.org/reference/map_.html)
+
+Ensure your code works, if you change the drawing window size, or the array values.
+
+- A bar chart (Easy):
+
+  ![Sketch](images/p37.png)
+
+  Start by drawing the axis, then draw the ticks and print the text, then draw the bars. You can use ```textAlign(CENTER, CENTER)``` to align the text
+  Use the HSB color space to assign different colors to each bar
+
+- A trend line (Medium)
+
+	![Sketch](images/p38.png)
+
+  This one is a bit trickier, because you have to calculate the start xy, and end xy for each line. Your for loop for drawing the trend lines can start at 1 instead of 0, and then you can get the previous value for the start of each line by taking rainfall[i - 1].
+
+- A pie chart (Hard)
+
+	![Sketch](images/p39.png)
+
+	You can use the the [arc function](https://processing.org/reference/arc_.html) to draw arcs, and sin & cos to calculate the x and y coordinates to print the text. This one is the most challenging. Remember that a pie chart shows the proportion of each data point in the sum of all the data, so you will have to calculate the sum of all the rain fall and figure out how much each month is relative to the sum. It's best to draw the segments first and then draw the labels. Your map function might look something like this:
+
+	```Java
+	float angle = map(rainfall[i], 0, sum, 0, TWO_PI);
+	```
+
+# Week 3 - Loops
+
+No lecture because of bank holiday
+
+## Lab
+
+## Learning Outcomes
+- Learn how to use the for loop in Java
+- Improved problem solving ability
+- Improved computational thinking skills
+
+Share screenshots on discord PLEASE. Today we will make multisensory for loops. In other words, loops that stimulate our senses with colours, hues and sounds. 
+
+Accept [this individual assignment on github classroom](https://classroom.github.com/a/nPZ7hH8r). Clone the repository locally and make at least 5 commits as you go. Put your code into MultiSensoryForLoops.java. Have the keys 0-9 switch the screen to each of the patterns below. The color space is set to HSB and the color values correspond to hue (color), saturation (amount of gray) and brigtness. Use the [Processing reference](https://processing.org/reference/). Use mouseX, mouseY, width and height variables. 
+
+![Sketch](images/p31.png)
+
+
+![Sketch](images/bshift.png)
+
+
+![Sketch](images/p36.png)
+
+
+![Sketch](images/p34.png)
+
+
+![Sketch](images/p33.png)
+
+
+![Sketch](images/p32.png)
+
+![Sketch](images/p27.png)
+
+Use line, sin and cos to draw regular polygons like squares, pentagons, octogons etc:
+
+![Sketch](images/p10.png)
+
+Bonus!
+
+Make your patterns interactive with the mouse.
+
+Use a for loop to play a sequence of tones at different pitches. This [article explains how](https://code.compartmental.net/minim/audiooutput_method_playnote.html). 
 
 # Week 2 - Java Fundamentals & Drawing
 
