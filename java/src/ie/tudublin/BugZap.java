@@ -60,36 +60,40 @@ public class BugZap extends PApplet {
 	int score = 0;
 
 
+	boolean laserhit(float playerX, float playerY, float bugX, float bugY, float bugwidth) {
+		float halfBugWidth = bugwidth / 2;
+	
+		if (bugY > 0 && bugY < playerY && bugX > playerX - halfBugWidth && bugX < playerX + halfBugWidth) {
+			return true; // Collision detected
+		}
+	
+		return false; // No collision
+	}
+	
 	public void draw() {
 		background(0);
-		drawPlayer(playerX, playerY,playerWidth);
-		drawBug(bugX,bugY, bugwidth);
+		drawPlayer(playerX, playerY, playerWidth);
+		drawBug(bugX, bugY, bugwidth);
 		moveBug();
 		fill(255);
 		textSize(32);
 		text("Frame Count: " + frameCount, 20, 20);
 		text("Score: " + score, 20, 50);
-
+	
 		if (frameCount % 60 == 0) {
 			text("One second has passed!", width/2, height/2);
 		}
-
-		if (laserhit(playerX, playerY,bugX,bugY,bugwidth)){
-			score++;
-			bugX = -bugwidth/2;
-			bugY = random(height);
+	
+		// Check if the laser hits the bug and increment the score
+		if (keyPressed && key == ' ') {
+			if (laserhit(playerX, playerY, bugX, bugY, bugwidth)) {
+				score++;
+				bugX = -bugwidth / 2;
+				bugY = random(height);
+			}
 		}
-
 	}
-	boolean laserhit(float playerX,float playerY,float bugX,float bugY, float bugwidth){
-		float halfBugWidth = bugwidth / 2;
-		
-		if (bugY > 0 && bugY < playerY && bugY > playerY - playerWidth / 8 && bugX > playerX - halfBugWidth && bugX < playerX + halfBugWidth) {
-			return true; // Collision detected
-		}
-		
-		return false; // No collision
-	}
+	
 	
 	public void drawPlayer(float x, float y, float w) {
 		rectMode(CENTER);
